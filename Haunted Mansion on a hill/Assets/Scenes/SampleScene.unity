@@ -12582,7 +12582,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1466
+  m_Name: pb_Mesh-7458
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19429,6 +19429,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House2 Wall Base (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787782358934274234, guid: 10d6276f28aee0c43914c4e16081c91a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4047048431568144308, guid: 10d6276f28aee0c43914c4e16081c91a,
         type: 3}
@@ -46757,7 +46762,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1270
+  m_Name: pb_Mesh-7168
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -52334,6 +52339,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: House2 Wall Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787782358934274234, guid: 10d6276f28aee0c43914c4e16081c91a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4047048431568144308, guid: 10d6276f28aee0c43914c4e16081c91a,
         type: 3}
