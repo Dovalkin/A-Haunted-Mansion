@@ -14,6 +14,7 @@ public class DoorRaycast : MonoBehaviour
     [SerializeField] private KeyCode openDoorKey = KeyCode.E;
 
     [SerializeField] private Image crosshair = null;
+    [SerializeField] private Image customImage;
     private bool isCrosshairActive;
     private bool doOnce;
 
@@ -58,11 +59,13 @@ public class DoorRaycast : MonoBehaviour
         if(on && !doOnce)
         {
             crosshair.color = Color.red;
+            customImage.enabled = true;
         }
         else
         {
             crosshair.color = Color.white;
             isCrosshairActive = false;
+            customImage.enabled = false;
         }
     }
 }
