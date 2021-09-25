@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DoorRaycast : MonoBehaviour
+public class FlashlightRaycast : MonoBehaviour
 {
-    [SerializeField] private int rayLength = 3;
+    [SerializeField] private int rayLength = 4;
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string excludeLayerName = null;
 
-    [SerializeField] public GameObject flashLightobj;
-    [SerializeField] public GameObject flashLight;
-    private bool FlashlightPickedUp = false;
+    public GameObject flashLightobj;
+    public GameObject flashLight;
 
-    private MyDoorController raycastedObj;
+    //private MainDoorController raycastedObj;
 
-    [SerializeField] private KeyCode openDoorKey = KeyCode.E;
+    [SerializeField] private KeyCode pickUp = KeyCode.E;
 
     [SerializeField] private Image crosshair = null;
     [SerializeField] private Image customImage;
@@ -24,40 +23,30 @@ public class DoorRaycast : MonoBehaviour
 
     private const string interactableTag = "InteractiveObject";
 
-    void Start()
-    {
-        flashLightobj.gameObject.SetActive(true);
-        flashLight.gameObject.SetActive(false);
-    }
-
     private void Update()
     {
-        RaycastHit hit; 
+        RaycastHit hit;
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
         int mask = 1 << LayerMask.NameToLayer(excludeLayerName) | layerMaskInteract.value;
 
-        if(Physics.Raycast(transform.position, fwd, out hit, rayLength, mask))
+        if (Physics.Raycast(transform.position, fwd, out hit, rayLength, mask))
         {
             if (hit.collider.CompareTag(interactableTag))
             {
                 if (!doOnce)
                 {
-                    raycastedObj = hit.collider.gameObject.GetComponent<MyDoorController>();
+                    //raycastedObj = hit.collider.gameObject.GetComponent<MainDoorController>();
                     CrosshairChange(true);
                 }
                 isCrosshairActive = true;
                 doOnce = true;
 
-                if (Input.GetKeyDown(openDoorKey))
+                if (Input.GetKeyDown(pickUp))
                 {
-                    raycastedObj.PlayAnimation();
-                    if(FlashlightPickedUp == false)
-                    {
-                        flashLightobj.gameObject.SetActive(false);
-                        flashLight.gameObject.SetActive(true);
-                        FlashlightPickedUp = true;
-                    }
+                    //raycastedObj.PlayAnimation();
+                    flashLightobj.SetActive(false);
+                    flashLight.SetActive(true);
                 }
             }
         }
@@ -72,7 +61,7 @@ public class DoorRaycast : MonoBehaviour
     }
     void CrosshairChange(bool on)
     {
-        if(on && !doOnce)
+        if (on && !doOnce)
         {
             crosshair.color = Color.red;
             customImage.enabled = true;

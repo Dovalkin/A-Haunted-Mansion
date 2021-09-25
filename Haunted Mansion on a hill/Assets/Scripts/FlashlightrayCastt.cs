@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainDoorRaycast : MonoBehaviour
+public class Flashlightraycastt : MonoBehaviour
 {
     [SerializeField] private int rayLength = 4;
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string excludeLayerName = null;
 
-    private MainDoorController raycastedObj;
+    public GameObject flashLightobj;
+    public GameObject flashLight;
 
-    [SerializeField] private KeyCode openDoorKey = KeyCode.E;
+    //private MainDoorController raycastedObj;
+
+    [SerializeField] private KeyCode pickUp = KeyCode.E;
 
     [SerializeField] private Image crosshair = null;
     [SerializeField] private Image customImage;
@@ -33,15 +36,17 @@ public class MainDoorRaycast : MonoBehaviour
             {
                 if (!doOnce)
                 {
-                    raycastedObj = hit.collider.gameObject.GetComponent<MainDoorController>();
+                    //raycastedObj = hit.collider.gameObject.GetComponent<MainDoorController>();
                     CrosshairChange(true);
                 }
                 isCrosshairActive = true;
                 doOnce = true;
 
-                if (Input.GetKeyDown(openDoorKey))
+                if (Input.GetKeyDown(pickUp))
                 {
-                    raycastedObj.PlayAnimation();
+                    //raycastedObj.PlayAnimation();
+                    flashLightobj.SetActive(false);
+                    flashLight.SetActive(true);
                 }
             }
         }
