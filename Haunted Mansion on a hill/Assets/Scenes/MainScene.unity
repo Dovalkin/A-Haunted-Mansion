@@ -63405,7 +63405,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c44e687092ec80e4eae2225c42def4e8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8513859187771203891, guid: c44e687092ec80e4eae2225c42def4e8,
         type: 3}
@@ -64834,7 +64834,7 @@ GameObject:
   - component: {fileID: 1209805350}
   - component: {fileID: 1209805349}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91163,7 +91163,7 @@ PrefabInstance:
     - target: {fileID: 3938913424493373451, guid: 8691ff6d8c605d24fbbb2fb8cc42cb02,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4164253019559590910, guid: 8691ff6d8c605d24fbbb2fb8cc42cb02,
         type: 3}
