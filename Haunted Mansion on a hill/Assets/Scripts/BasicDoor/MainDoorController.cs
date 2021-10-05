@@ -27,4 +27,16 @@ public class MainDoorController : MonoBehaviour
             doorOpen = false;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            if (doorOpen == false)
+            {
+                maindoorAnim.Play("DoorOpen", 0, 0.0f);
+                doorOpen = true;
+            }    
+        }
+    }
 }

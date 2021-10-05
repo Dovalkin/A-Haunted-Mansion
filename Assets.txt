@@ -1,0 +1,4 @@
+Asset:
+textures retrieved from: Unplash.com
+button icon retrieved from: http://getdrawings.com/icon-tag/uppercase
+flashlight cookie retrieved from: https://www.mediafire.com/file/gchmkenjry6gsyh/FlashlightCookie.tif/file
