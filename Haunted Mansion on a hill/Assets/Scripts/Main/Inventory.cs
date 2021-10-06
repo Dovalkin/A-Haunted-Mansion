@@ -14,6 +14,8 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] GameObject Tickimg;
 
+    [SerializeField] GameObject FirstCollide;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,5 +66,6 @@ public class Inventory : MonoBehaviour
         Tickimg.gameObject.SetActive(true);
         FlashlightButton.gameObject.SetActive(false);
         FlashlightImage.gameObject.SetActive(false);
+        Destroy(FirstCollide);
     }
 }
