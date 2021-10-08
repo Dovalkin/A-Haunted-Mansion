@@ -20,6 +20,14 @@ namespace KeySystem
 
         private string interactableTag = "InteractiveObject";
 
+        [SerializeField] GameObject RedKeyImage;
+        [SerializeField] GameObject RedKeyTickimg;
+
+        void Start()
+        {
+            RedKeyImage.gameObject.SetActive(false);
+            RedKeyTickimg.gameObject.SetActive(false);
+        }
         private void Update()
         {
             RaycastHit hit;
@@ -43,6 +51,8 @@ namespace KeySystem
                     if (Input.GetKeyDown(openDoorKey))
                     {
                         raycastedObject.ObjectInteraction();
+                        RedKeyImage.gameObject.SetActive(true);
+                        RedKeyTickimg.gameObject.SetActive(true);
                     }
                 }
             }

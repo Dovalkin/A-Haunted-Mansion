@@ -11,7 +11,6 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject FlashlightImage;
     [SerializeField] GameObject FlashlightButton;
     [SerializeField] GameObject Flashlightobj;
-
     [SerializeField] GameObject Tickimg;
 
     [SerializeField] GameObject FirstCollide;
