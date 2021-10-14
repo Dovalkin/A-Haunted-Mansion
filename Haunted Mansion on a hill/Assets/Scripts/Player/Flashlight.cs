@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
+    [SerializeField] GameObject FlashlightInstructionUI3;
 
     [SerializeField] GameObject flashLightLight;
     private bool FlashlightActive = false;
@@ -23,6 +24,7 @@ public class Flashlight : MonoBehaviour
             {
                 flashLightLight.gameObject.SetActive(true);
                 FlashlightActive = true;
+                Destroy(FlashlightInstructionUI3);
             }
             else
             {

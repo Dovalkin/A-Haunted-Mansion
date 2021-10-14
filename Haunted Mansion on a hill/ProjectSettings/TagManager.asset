@@ -11,6 +11,11 @@ TagManager:
   - Enemy
   - Flashlight
   - Door
+  - RedDoor
+  - Undefined
+  - DoorButton
+  - RedLockedDoor
+  - RedKey
   layers:
   - Default
   - TransparentFX

@@ -9,8 +9,13 @@ public class Pickup : MonoBehaviour
     [SerializeField] float Distance = 4.0f;
     [SerializeField] GameObject PickupMessage;
     [SerializeField] GameObject WhiteCrosshair;
+    [SerializeField] GameObject FlashlightInstuctionUI1;
+    [SerializeField] GameObject FlashlightInstuctionUI2;
 
     [SerializeField] GameObject Flashlightobj;
+
+    //[SerializeField] GameObject RedKeyobj;
+    //[SerializeField] GameObject BlueKeyobj;
 
     private float RayDistance;
     private bool CanSeePickup = false;
@@ -18,8 +23,11 @@ public class Pickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FlashlightInstuctionUI1.gameObject.SetActive(true);
+        FlashlightInstuctionUI2.gameObject.SetActive(false);
         PickupMessage.gameObject.SetActive(false);
         Flashlightobj.gameObject.SetActive(false);
+        //RedKeyobj.gameObject.SetActive(false);
         RayDistance = Distance;
     }
 
@@ -37,23 +45,29 @@ public class Pickup : MonoBehaviour
                     {
                         Destroy(hit.transform.gameObject);
                         SaveScript.Flashlight = true;
+                        Destroy(FlashlightInstuctionUI1);
+                        FlashlightInstuctionUI2.gameObject.SetActive(true);
                         //MyPlayer.Play();
                     }
 
                 }
             }
-            else if (hit.collider.CompareTag("Door"))
-            {
-                CanSeePickup = true;
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    hit.transform.gameObject.SendMessage("DoorOpen");
-                }
-            }
+
             else
             {
                 CanSeePickup = false;
             }
+            //else if (hit.collider.CompareTag("RedKey"))
+            //{
+            //    CanSeePickup = true;
+            //    if (Input.GetKeyDown(KeyCode.E))
+            //        if(SaveScript.RedKey == false)
+            //        {
+            //            Destroy(hit.transform.gameObject);
+            //            SaveScript.RedKey = true;
+            //            //Player1.Play();
+            //        }
+            //}
         }
         if(CanSeePickup == true)
         {

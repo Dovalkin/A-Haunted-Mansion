@@ -9,9 +9,9 @@ public class DoorRaycast : MonoBehaviour
     [SerializeField] private LayerMask layerMaskInteract;
     [SerializeField] private string excludeLayerName = null;
 
-    [SerializeField] public GameObject flashLightobj;
-    [SerializeField] public GameObject flashLight;
-    private bool FlashlightPickedUp = false;
+    //[SerializeField] public GameObject flashLightobj;
+    //[SerializeField] public GameObject flashLight;
+    //private bool FlashlightPickedUp = false;
 
     private MyDoorController raycastedObj;
 
@@ -23,12 +23,13 @@ public class DoorRaycast : MonoBehaviour
     private bool doOnce;
 
     private const string interactableTag = "InteractiveObject";
+    //private const string interactableeTag = "RedLockedDoor";
 
-    void Start()
-    {
-        flashLightobj.gameObject.SetActive(true);
-        flashLight.gameObject.SetActive(false);
-    }
+    //void Start()
+    //{
+    //    flashLightobj.gameObject.SetActive(true);
+    //    flashLight.gameObject.SetActive(false);
+    //}
 
     private void Update()
     {
@@ -52,14 +53,24 @@ public class DoorRaycast : MonoBehaviour
                 if (Input.GetKeyDown(openDoorKey))
                 {
                     raycastedObj.PlayAnimation();
-                    if(FlashlightPickedUp == false)
-                    {
-                        flashLightobj.gameObject.SetActive(false);
-                        flashLight.gameObject.SetActive(true);
-                        FlashlightPickedUp = true;
-                    }
+                    //if(FlashlightPickedUp == false)
+                    //{
+                    //    flashLightobj.gameObject.SetActive(false);
+                    //    flashLight.gameObject.SetActive(true);
+                    //    FlashlightPickedUp = true;
+                    //}
                 }
             }
+
+            //if (hit.collider.CompareTag(interactableeTag))
+            //{
+            //    if (!doOnce)
+            //    {
+            //        CrosshairChange(true);
+            //    }
+            //    isCrosshairActive = true;
+            //    doOnce = true;
+            //}
         }
         else
         {

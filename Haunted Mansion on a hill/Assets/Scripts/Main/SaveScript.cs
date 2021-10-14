@@ -5,4 +5,5 @@ using UnityEngine;
 public class SaveScript : MonoBehaviour
 {
     public static bool Flashlight = false;
+    public static bool RedKey = false;
 }

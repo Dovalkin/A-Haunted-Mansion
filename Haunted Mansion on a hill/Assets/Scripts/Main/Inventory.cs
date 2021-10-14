@@ -15,9 +15,14 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] GameObject FirstCollide;
 
+    [SerializeField] GameObject FlashlightInstructionUI2;
+    [SerializeField] GameObject FlashlightInstructionUI3;
+
     // Start is called before the first frame update
     void Start()
     {
+        FlashlightInstructionUI3.gameObject.SetActive(false);
+
         InventoryMenu.gameObject.SetActive(false);
         InventoryActive = false;
 
@@ -66,5 +71,7 @@ public class Inventory : MonoBehaviour
         FlashlightButton.gameObject.SetActive(false);
         FlashlightImage.gameObject.SetActive(false);
         Destroy(FirstCollide);
+        Destroy(FlashlightInstructionUI2);
+        FlashlightInstructionUI3.gameObject.SetActive(true);
     }
 }
