@@ -7,6 +7,9 @@ namespace KeySystem
 {
     public class BlueKeyRaycast : MonoBehaviour
     {
+        public GameObject doorlock1;
+        public GameObject doorunlock1;
+
         [SerializeField] private int rayLength = 4;
         [SerializeField] private LayerMask layerMaskInteract;
         [SerializeField] private string excluseLayerName = null;
@@ -15,15 +18,17 @@ namespace KeySystem
         [SerializeField] private KeyCode openDoorKey = KeyCode.E;
 
         [SerializeField] private Image crosshair = null;
+        [SerializeField] private Image customImage;
         private bool isCrosshairActive;
         private bool doOncee;
 
         private string interactableTag = "InteractiveObject";
 
-        //void Start()
-        //{
-
-        //}
+        void Start()
+        {
+            doorlock1.gameObject.SetActive(true);
+            doorunlock1.gameObject.SetActive(false);
+        }
         private void Update()
         {
             RaycastHit hit;
@@ -47,6 +52,8 @@ namespace KeySystem
                     if (Input.GetKeyDown(openDoorKey))
                     {
                         raycastedObjectt.ObjecttInteraction();
+                        doorlock1.gameObject.SetActive(false);
+                        doorunlock1.gameObject.SetActive(true);
                     }
                 }
             }
@@ -64,11 +71,13 @@ namespace KeySystem
             if (on && !doOncee)
             {
                 crosshair.color = Color.red;
+                customImage.enabled = true;
             }
             else
             {
                 crosshair.color = Color.white;
                 isCrosshairActive = false;
+                customImage.enabled = false;
             }
         }
     }

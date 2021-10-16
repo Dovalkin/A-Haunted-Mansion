@@ -8,6 +8,8 @@ public class LockDoor : MonoBehaviour
     RaycastHit hit;
     [SerializeField] float Distance = 4.0f;
     [SerializeField] GameObject LockedDoorMessage;
+    [SerializeField] GameObject LockedDoorMessage1;
+    [SerializeField] GameObject LockedDoorMessage2;
 
     //[SerializeField] private int waitTimer = 1;
     //[SerializeField] private bool pauseInteraction = false;
@@ -19,6 +21,8 @@ public class LockDoor : MonoBehaviour
     void Start()
     {
         LockedDoorMessage.SetActive(false);
+        LockedDoorMessage1.SetActive(false);
+        LockedDoorMessage2.SetActive(false);
         StartCoroutine(WaitBeforeShow());
         RayDistance = Distance;
     }
@@ -36,11 +40,29 @@ public class LockDoor : MonoBehaviour
                     StartCoroutine(WaitBeforeShow());
                 }
             }
+            else if (hit.collider.CompareTag("BlueLockedDoor"))
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    LockedDoorMessage1.SetActive(true);
+                    StartCoroutine(WaitBeforeShow());
+                }
+            }
+            else if (hit.collider.CompareTag("GreenLockedDoor"))
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    LockedDoorMessage2.SetActive(true);
+                    StartCoroutine(WaitBeforeShow());
+                }
+            }
         }
     }
     private IEnumerator WaitBeforeShow()
     {
         yield return new WaitForSeconds(2);
         LockedDoorMessage.SetActive(false);
+        LockedDoorMessage1.SetActive(false);
+        LockedDoorMessage2.SetActive(false);
     }
 }

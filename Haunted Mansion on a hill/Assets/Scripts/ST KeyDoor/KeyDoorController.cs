@@ -45,6 +45,10 @@ namespace KeySystem
             {
                 OpenDoor();
             }
+            else if (keyInventory.hasGreenKey)
+            {
+                OpenDoor();
+            }
             else
             {
                 StartCoroutine(ShowDoorLocked());
