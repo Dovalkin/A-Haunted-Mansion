@@ -8,7 +8,9 @@ namespace KeySystem
     public class BlueKeyRaycast : MonoBehaviour
     {
         public GameObject doorlock1;
+        public GameObject doorlockk1;
         public GameObject doorunlock1;
+        public GameObject doorunlockk1;
 
         [SerializeField] private int rayLength = 4;
         [SerializeField] private LayerMask layerMaskInteract;
@@ -27,7 +29,9 @@ namespace KeySystem
         void Start()
         {
             doorlock1.gameObject.SetActive(true);
+            doorlockk1.gameObject.SetActive(true);
             doorunlock1.gameObject.SetActive(false);
+            doorunlockk1.gameObject.SetActive(false);
         }
         private void Update()
         {
@@ -53,7 +57,9 @@ namespace KeySystem
                     {
                         raycastedObjectt.ObjecttInteraction();
                         doorlock1.gameObject.SetActive(false);
+                        doorlockk1.gameObject.SetActive(false);
                         doorunlock1.gameObject.SetActive(true);
+                        doorunlockk1.gameObject.SetActive(true);
                     }
                 }
             }

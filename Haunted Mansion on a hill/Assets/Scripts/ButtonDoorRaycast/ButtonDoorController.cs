@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class ButtonDoorController : MonoBehaviour
 {
+    public AudioSource source;
+    public AudioSource closesource;
+    public AudioClip clip;
+    public AudioClip closeclip;
+
     [SerializeField] private Animator doorAnim = null;
 
     private bool doorOpen = false;
@@ -13,6 +19,12 @@ public class ButtonDoorController : MonoBehaviour
 
     [SerializeField] private int waitTimer = 1;
     [SerializeField] private bool pauseInteraction = false;
+
+    private void Start()
+    {
+        source = GetComponent<AudioSource>();
+        closesource = GetComponent<AudioSource>();
+    }
 
     private IEnumerator PauseDoorInteraction()
     {
@@ -25,6 +37,7 @@ public class ButtonDoorController : MonoBehaviour
     {
         if (!doorOpen && !pauseInteraction)
         {
+            source.PlayOneShot(clip);
             doorAnim.Play(openAnimationName, 0, 0.0f);
             doorOpen = true;
             StartCoroutine(PauseDoorInteraction());
@@ -32,6 +45,7 @@ public class ButtonDoorController : MonoBehaviour
 
         else if (doorOpen && !pauseInteraction)
         {
+            closesource.PlayOneShot(closeclip);
             doorAnim.Play(closeAnimationName, 0, 0.0f);
             doorOpen = false;
             StartCoroutine(PauseDoorInteraction());

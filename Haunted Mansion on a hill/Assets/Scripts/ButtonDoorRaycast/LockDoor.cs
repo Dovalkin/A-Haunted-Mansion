@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class LockDoor : MonoBehaviour
 {
+    public AudioSource lockedsource;
+    public AudioClip clip;
 
     RaycastHit hit;
     [SerializeField] float Distance = 4.0f;
@@ -20,6 +23,7 @@ public class LockDoor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lockedsource = GetComponent<AudioSource>();
         LockedDoorMessage.SetActive(false);
         LockedDoorMessage1.SetActive(false);
         LockedDoorMessage2.SetActive(false);
@@ -36,6 +40,7 @@ public class LockDoor : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    lockedsource.PlayOneShot(clip);
                     LockedDoorMessage.SetActive(true);
                     StartCoroutine(WaitBeforeShow());
                 }
@@ -44,6 +49,7 @@ public class LockDoor : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    lockedsource.PlayOneShot(clip);
                     LockedDoorMessage1.SetActive(true);
                     StartCoroutine(WaitBeforeShow());
                 }
@@ -52,7 +58,26 @@ public class LockDoor : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    lockedsource.PlayOneShot(clip);
                     LockedDoorMessage2.SetActive(true);
+                    StartCoroutine(WaitBeforeShow());
+                }
+            }
+            else if (hit.collider.CompareTag("RedLockedDoor1"))
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    lockedsource.PlayOneShot(clip);
+                    LockedDoorMessage.SetActive(true);
+                    StartCoroutine(WaitBeforeShow());
+                }
+            }
+            else if (hit.collider.CompareTag("BlueLockedDoor1"))
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    lockedsource.PlayOneShot(clip);
+                    LockedDoorMessage1.SetActive(true);
                     StartCoroutine(WaitBeforeShow());
                 }
             }

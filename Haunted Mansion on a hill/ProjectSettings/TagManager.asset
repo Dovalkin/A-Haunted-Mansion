@@ -18,6 +18,8 @@ TagManager:
   - RedKey
   - BlueLockedDoor
   - GreenLockedDoor
+  - RedLockedDoor1
+  - BlueLockedDoor1
   layers:
   - Default
   - TransparentFX

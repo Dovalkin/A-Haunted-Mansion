@@ -10,6 +10,8 @@ namespace KeySystem
 
         public GameObject doorlock;
         public GameObject doorunlock;
+        //public GameObject doorunlockk;
+        //public GameObject doorlockk;
 
         [SerializeField] private int rayLength = 4;
         [SerializeField] private LayerMask layerMaskInteract;
@@ -28,7 +30,9 @@ namespace KeySystem
         void Start()
         {
             doorlock.gameObject.SetActive(true);
+            //doorlockk.gameObject.SetActive(true);
             doorunlock.gameObject.SetActive(false);
+            //doorunlockk.gameObject.SetActive(false);
         }
         private void Update()
         {
@@ -53,7 +57,9 @@ namespace KeySystem
                     {
                         raycastedObject.ObjectInteraction();
                         doorlock.gameObject.SetActive(false);
+                        //doorlockk.gameObject.SetActive(false);
                         doorunlock.gameObject.SetActive(true);
+                        //doorunlockk.gameObject.SetActive(true);
                     }
                 }
             }
