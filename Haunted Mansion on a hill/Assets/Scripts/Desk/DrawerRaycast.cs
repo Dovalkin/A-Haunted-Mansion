@@ -14,11 +14,18 @@ public class DrawerRaycast : MonoBehaviour
     [SerializeField] private KeyCode openDrawerKey = KeyCode.E;
 
     [SerializeField] private Image crosshair = null;
-    [SerializeField] private Image customImage;
+    [SerializeField] GameObject PickupMessage;
     private bool isCrosshairActive;
     private bool doOnce;
 
+    private bool CanSeePickup = false;
+
     private const string interactableTag = "InteractiveObject";
+
+    private void Start()
+    {
+        PickupMessage.gameObject.SetActive(false);
+    }
 
     private void Update()
     {
@@ -31,6 +38,7 @@ public class DrawerRaycast : MonoBehaviour
         {
             if (hit.collider.CompareTag(interactableTag))
             {
+                CanSeePickup = true;
                 if (!doOnce)
                 {
                     raycastedObj = hit.collider.gameObject.GetComponent<DrawerController>();
@@ -47,6 +55,7 @@ public class DrawerRaycast : MonoBehaviour
         }
         else
         {
+            CanSeePickup = false;
             if (isCrosshairActive)
             {
                 CrosshairChange(false);
@@ -59,13 +68,29 @@ public class DrawerRaycast : MonoBehaviour
         if (on && !doOnce)
         {
             crosshair.color = Color.red;
-            customImage.enabled = true;
+            PickupMessage.gameObject.SetActive(true);
         }
         else
         {
             crosshair.color = Color.white;
             isCrosshairActive = false;
-            customImage.enabled = false;
+            PickupMessage.gameObject.SetActive(false);
+        }
+        if (CanSeePickup == true)
+        {
+            PickupMessage.gameObject.SetActive(true);
+            //InteractMessage.gameObject.SetActive(true);
+            //WhiteCrosshair.gameObject.SetActive(false);
+            //RayDistance = 1000f;
+        }
+        if (CanSeePickup == false)
+        {
+            PickupMessage.gameObject.SetActive(false);
+            //InteractMessage.gameObject.SetActive(false);
+            //WhiteCrosshair.gameObject.SetActive(true);
+            //RayDistance = Distance;
         }
     }
 }
+
+

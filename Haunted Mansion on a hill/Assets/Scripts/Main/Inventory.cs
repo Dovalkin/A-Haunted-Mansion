@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -53,25 +54,25 @@ public class Inventory : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
             }
         }
-        CheckFlashlight();
+        //CheckFlashlight();
     }
 
-    void CheckFlashlight()
-    {
-        if(SaveScript.Flashlight == true)
-        {
-            FlashlightImage.gameObject.SetActive(true);
-            FlashlightButton.gameObject.SetActive(true);
-        }
-    }
-    public void Flashlight()
-    {
-        Flashlightobj.gameObject.SetActive(true);
-        Tickimg.gameObject.SetActive(true);
-        FlashlightButton.gameObject.SetActive(false);
-        FlashlightImage.gameObject.SetActive(false);
-        Destroy(FirstCollide);
-        Destroy(FlashlightInstructionUI2);
-        FlashlightInstructionUI3.gameObject.SetActive(true);
-    }
+    //void CheckFlashlight()
+    //{
+    //    if(SaveScript.Flashlight == true)
+    //    {
+    //        FlashlightImage.gameObject.SetActive(true);
+    //        FlashlightButton.gameObject.SetActive(true);
+    //    }
+    //}
+    //public void Flashlight()
+    //{
+    //    Flashlightobj.gameObject.SetActive(true);
+    //    Tickimg.gameObject.SetActive(true);
+    //    FlashlightButton.gameObject.SetActive(false);
+    //    FlashlightImage.gameObject.SetActive(false);
+    //    Destroy(FirstCollide);
+    //    Destroy(FlashlightInstructionUI2);
+    //    FlashlightInstructionUI3.gameObject.SetActive(true);
+    //}
 }

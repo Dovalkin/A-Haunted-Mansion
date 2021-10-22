@@ -8,11 +8,22 @@ public class Pickup : MonoBehaviour
     RaycastHit hit;
     [SerializeField] float Distance = 4.0f;
     [SerializeField] GameObject PickupMessage;
-    [SerializeField] GameObject WhiteCrosshair;
+    [SerializeField] GameObject InteractMessage;
+    //[SerializeField] GameObject WhiteCrosshair;
     [SerializeField] GameObject FlashlightInstuctionUI1;
     [SerializeField] GameObject FlashlightInstuctionUI2;
 
+    [SerializeField] GameObject FlashlightImage;
+    //[SerializeField] GameObject FlashlightButton;
     [SerializeField] GameObject Flashlightobj;
+    [SerializeField] GameObject Tickimg;
+
+    [SerializeField] GameObject FirstCollide;
+
+    [SerializeField] GameObject FlashlightInstructionUI2;
+    [SerializeField] GameObject FlashlightInstructionUI3;
+
+    //[SerializeField] GameObject Flashlightobj;
 
     //[SerializeField] GameObject RedKeyobj;
     //[SerializeField] GameObject BlueKeyobj;
@@ -26,6 +37,7 @@ public class Pickup : MonoBehaviour
         FlashlightInstuctionUI1.gameObject.SetActive(true);
         FlashlightInstuctionUI2.gameObject.SetActive(false);
         PickupMessage.gameObject.SetActive(false);
+        InteractMessage.gameObject.SetActive(false);
         Flashlightobj.gameObject.SetActive(false);
         //RedKeyobj.gameObject.SetActive(false);
         RayDistance = Distance;
@@ -48,6 +60,13 @@ public class Pickup : MonoBehaviour
                         Destroy(FlashlightInstuctionUI1);
                         FlashlightInstuctionUI2.gameObject.SetActive(true);
                         //MyPlayer.Play();
+                        Flashlightobj.gameObject.SetActive(true);
+                        Tickimg.gameObject.SetActive(true);
+                        //FlashlightButton.gameObject.SetActive(false);
+                        FlashlightImage.gameObject.SetActive(false);
+                        Destroy(FirstCollide);
+                        Destroy(FlashlightInstructionUI2);
+                        FlashlightInstructionUI3.gameObject.SetActive(true);
                     }
 
                 }
@@ -72,13 +91,15 @@ public class Pickup : MonoBehaviour
         if(CanSeePickup == true)
         {
             PickupMessage.gameObject.SetActive(true);
-            WhiteCrosshair.gameObject.SetActive(false);
+            InteractMessage.gameObject.SetActive(true);
+            //WhiteCrosshair.gameObject.SetActive(false);
             RayDistance = 1000f;
         }
         if (CanSeePickup == false)
         {
             PickupMessage.gameObject.SetActive(false);
-            WhiteCrosshair.gameObject.SetActive(true);
+            InteractMessage.gameObject.SetActive(false);
+            //WhiteCrosshair.gameObject.SetActive(true);
             RayDistance = Distance;
         }
     }

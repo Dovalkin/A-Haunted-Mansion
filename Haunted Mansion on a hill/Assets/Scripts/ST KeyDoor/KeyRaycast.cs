@@ -21,6 +21,7 @@ namespace KeySystem
         [SerializeField] private KeyCode openDoorKey = KeyCode.E;
 
         [SerializeField] private Image crosshair = null;
+        [SerializeField] GameObject PickupMessage;
         private bool isCrosshairActive;
         private bool doOnce;
 
@@ -76,10 +77,12 @@ namespace KeySystem
         {
             if(on && !doOnce)
             {
+                PickupMessage.gameObject.SetActive(true);
                 crosshair.color = Color.red;
             }
             else
             {
+                PickupMessage.gameObject.SetActive(false);
                 crosshair.color = Color.white;
                 isCrosshairActive = false;
             }
