@@ -21,6 +21,8 @@ TagManager:
   - RedLockedDoor1
   - BlueLockedDoor1
   - Puzzle1
+  - Puzzle1piece
+  - PuzzlePiece
   layers:
   - Default
   - TransparentFX
@@ -32,7 +34,7 @@ TagManager:
   - Puzzle
   - Target
   - Obstruction
-  - 
+  - PuzzlePiece
   - 
   - 
   - 

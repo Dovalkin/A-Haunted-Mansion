@@ -9,12 +9,15 @@ public class DrawerController : MonoBehaviour
 
     private Animator drawerAnim;
 
+    [SerializeField] GameObject topCollider;
+
     private bool drawerOpen = false;
 
     private void Awake()
     {
         drawerAnim = gameObject.GetComponent<Animator>();
         source = GetComponent<AudioSource>();
+        topCollider.gameObject.SetActive(true);
     }
 
     public void PlayAnimation()
@@ -24,12 +27,14 @@ public class DrawerController : MonoBehaviour
             source.PlayOneShot(clip);
             drawerAnim.Play("DrawerPulling", 0, 0.0f);
             drawerOpen = true;
+            topCollider.gameObject.SetActive(false);
         }
         else
         {
             source.PlayOneShot(clip);
             drawerAnim.Play("DrawerClosing", 0, 0.0f);
             drawerOpen = false;
+            topCollider.gameObject.SetActive(true);
         }
     }
 }
