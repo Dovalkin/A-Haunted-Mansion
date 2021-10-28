@@ -49,6 +49,7 @@ namespace PuzzleSystem
 
                 if (Input.GetKeyDown(pickUpKey))
                 {
+                    PuzzleNumber.puzzlePicked += 1;
                     //raycastedObject.ObjectInteraction();
                     Destroy(hit.transform.gameObject);
                 }

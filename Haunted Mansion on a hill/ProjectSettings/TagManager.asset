@@ -23,6 +23,7 @@ TagManager:
   - Puzzle1
   - Puzzle1piece
   - PuzzlePiece
+  - NotEnoughPuzzle
   layers:
   - Default
   - TransparentFX

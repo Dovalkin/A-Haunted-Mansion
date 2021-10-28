@@ -15,7 +15,7 @@ public class Puzzle1 : MonoBehaviour
     [SerializeField] private string excluseLayerName = null;
 
     [SerializeField] private Image crosshair = null;
-    [SerializeField] private Image customImage;
+    [SerializeField] GameObject PickupMessage;
 
     private bool isCrosshairActive;
     private bool doOnce;
@@ -84,13 +84,13 @@ public class Puzzle1 : MonoBehaviour
         if (on && !doOnce)
         {
             crosshair.color = Color.red;
-            customImage.enabled = true;
+            PickupMessage.gameObject.SetActive(true);
         }
         else
         {
             crosshair.color = Color.white;
             isCrosshairActive = false;
-            customImage.enabled = false;
+            PickupMessage.gameObject.SetActive(false);
         }
     }
 }
