@@ -16,7 +16,7 @@ public class PuzzleController : MonoBehaviour
     void Start()
     {
         notEnoughPieces.gameObject.SetActive(true);
-        enoughPieces.gameObject.SetActive(false);
+        enoughPieces.gameObject.SetActive(false);        
     }
 
     void Update()
@@ -25,7 +25,7 @@ public class PuzzleController : MonoBehaviour
         if (puzzlepieces.Length == 0)
         {
             notEnoughPieces.gameObject.SetActive(false);
-            enoughPieces.gameObject.SetActive(true);
+            enoughPieces.gameObject.SetActive(true);           
         }
     }
 }

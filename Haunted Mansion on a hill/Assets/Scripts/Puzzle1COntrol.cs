@@ -12,6 +12,9 @@ public class Puzzle1COntrol : MonoBehaviour
     [SerializeField]
     public GameObject gate;
 
+    [SerializeField] GameObject solvingPuzzImg;
+    [SerializeField] GameObject puzzle1Panel;
+
     public static bool puzzle1solved;
 
     // Start is called before the first frame update
@@ -19,6 +22,7 @@ public class Puzzle1COntrol : MonoBehaviour
     {
         gate.gameObject.SetActive(true);
         puzzle1solved = false;
+        solvingPuzzImg.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -32,8 +36,14 @@ public class Puzzle1COntrol : MonoBehaviour
             pictures[5].rotation.z == 0)
         {
             puzzle1solved = true;
-            gate.gameObject.SetActive(false);
+            //gate.gameObject.SetActive(false);
+            solvingPuzzImg.gameObject.SetActive(false);
             Debug.Log("Puzzle1 solved");
+            Destroy(puzzle1Panel);
+            Destroy(gate);
+            Time.timeScale = 1f;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 }
