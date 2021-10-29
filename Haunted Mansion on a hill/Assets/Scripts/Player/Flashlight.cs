@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
+    public AudioSource clickSound;
+
     [SerializeField] GameObject FlashlightInstructionUI3;
 
     [SerializeField] GameObject flashLightLight;
@@ -12,7 +14,7 @@ public class Flashlight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        flashLightLight.gameObject.SetActive(false); 
+        flashLightLight.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,11 +27,13 @@ public class Flashlight : MonoBehaviour
                 flashLightLight.gameObject.SetActive(true);
                 FlashlightActive = true;
                 Destroy(FlashlightInstructionUI3);
+                clickSound.Play();
             }
             else
             {
                 flashLightLight.gameObject.SetActive(false);
                 FlashlightActive = false;
+                clickSound.Play();
             }
         }
     }

@@ -6,6 +6,8 @@ namespace KeySystem
 {
     public class BlueKeyController : MonoBehaviour
     {
+        public AudioSource pickUpSound;
+
         [SerializeField] private bool blueDoor = false;
         [SerializeField] private bool blueKey = false;
         [SerializeField] GameObject BlueKeyImage;
@@ -36,6 +38,7 @@ namespace KeySystem
 
             else if (blueKey)
             {
+                pickUpSound.Play();
                 _keyInventory.hasBlueKey = true;
                 gameObject.SetActive(false);
                 BlueKeyImage.gameObject.SetActive(true);

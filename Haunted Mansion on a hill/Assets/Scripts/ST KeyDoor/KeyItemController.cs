@@ -6,6 +6,8 @@ namespace KeySystem
 {
     public class KeyItemController : MonoBehaviour
     {
+        public AudioSource pickUpSound;
+
         [SerializeField] private bool redDoor = false;
         [SerializeField] private bool redKey = false;
         [SerializeField] GameObject RedKeyImage;
@@ -37,8 +39,9 @@ namespace KeySystem
 
             else if (redKey)
             {
+                pickUpSound.Play();
                 _keyInventory.hasRedKey = true;
-                gameObject.SetActive(false);
+                Destroy(gameObject);
                 RedKeyImage.gameObject.SetActive(true);
                 RedKeyTickimg.gameObject.SetActive(true);
             }

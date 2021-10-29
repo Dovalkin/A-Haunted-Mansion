@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class Pickup : MonoBehaviour
 {
+
+    public AudioSource source;
+    public AudioClip clip;
+
     RaycastHit hit;
     [SerializeField] float Distance = 4.0f;
     [SerializeField] GameObject PickupMessage;
@@ -34,6 +38,7 @@ public class Pickup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
         FlashlightInstuctionUI1.gameObject.SetActive(true);
         FlashlightInstuctionUI2.gameObject.SetActive(false);
         PickupMessage.gameObject.SetActive(false);
@@ -67,6 +72,7 @@ public class Pickup : MonoBehaviour
                         Destroy(FirstCollide);
                         Destroy(FlashlightInstructionUI2);
                         FlashlightInstructionUI3.gameObject.SetActive(true);
+                        source.PlayOneShot(clip);
                     }
 
                 }
