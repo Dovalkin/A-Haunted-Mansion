@@ -24,6 +24,7 @@ TagManager:
   - Puzzle1piece
   - PuzzlePiece
   - NotEnoughPuzzle
+  - Chest
   layers:
   - Default
   - TransparentFX
@@ -36,7 +37,7 @@ TagManager:
   - Target
   - Obstruction
   - PuzzlePiece
-  - 
+  - ChestLock
   - 
   - 
   - 

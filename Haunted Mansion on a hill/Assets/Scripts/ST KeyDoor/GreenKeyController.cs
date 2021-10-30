@@ -6,6 +6,8 @@ namespace KeySystem
 {
     public class GreenKeyController : MonoBehaviour
     {
+        public AudioSource pickUpSound;
+
         [SerializeField] private bool greenDoor = false;
         [SerializeField] private bool greenKey = false;
         [SerializeField] GameObject GreenKeyImage;
@@ -36,8 +38,9 @@ namespace KeySystem
 
             else if (greenKey)
             {
+                pickUpSound.Play();
                 _keyInventory.hasGreenKey = true;
-                gameObject.SetActive(false);
+                Destroy(gameObject);
                 GreenKeyImage.gameObject.SetActive(true);
                 GreenKeyTickimg.gameObject.SetActive(true);
             }
