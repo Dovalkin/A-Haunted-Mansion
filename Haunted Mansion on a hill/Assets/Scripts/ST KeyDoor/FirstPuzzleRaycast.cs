@@ -7,6 +7,8 @@ namespace PuzzleSystem
 {
     public class FirstPuzzleRaycast : MonoBehaviour
     {
+        public AudioSource Aura;
+
         [SerializeField] private int rayLength = 4;
         [SerializeField] private LayerMask layerMaskInteract;
         [SerializeField] private string excluseLayerName = null;
@@ -52,6 +54,7 @@ namespace PuzzleSystem
                     PuzzleNumber.puzzlePicked += 1;
                     //raycastedObject.ObjectInteraction();
                     Destroy(hit.transform.gameObject);
+                    Aura.Play();
                 }
             }
             else

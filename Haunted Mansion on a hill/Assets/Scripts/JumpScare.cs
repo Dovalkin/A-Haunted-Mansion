@@ -5,10 +5,18 @@ using UnityEngine;
 public class JumpScare : MonoBehaviour
 {
     public AudioSource Scream;
+    public AudioSource HeartBeat;
+    public AudioSource Breath;
     //public GameObject ThePlayer;
     public GameObject JumpCam;
     public GameObject FlashImg;
     [SerializeField] GameObject nextLevelTrigger;
+    [SerializeField] GameObject SheHutningtxt;
+
+    private void Start()
+    {
+        SheHutningtxt.gameObject.SetActive(false);
+    }
 
     private void OnTriggerEnter()
     {
@@ -17,6 +25,7 @@ public class JumpScare : MonoBehaviour
        // ThePlayer.SetActive(false);
         FlashImg.SetActive(true);
         StartCoroutine(EndJump());
+        SheHutningtxt.gameObject.SetActive(true);
     }
 
     IEnumerator EndJump()
@@ -26,5 +35,8 @@ public class JumpScare : MonoBehaviour
         JumpCam.SetActive(false);
         FlashImg.SetActive(false);
         Destroy(nextLevelTrigger);
+        HeartBeat.Play();
+        Breath.Play();
+        SheHutningtxt.gameObject.SetActive(false);
     }
 }

@@ -27,7 +27,7 @@ public class LockControl : MonoBehaviour
         ChestCoverOpen.gameObject.SetActive(false);
 
         result = new int[]{0,0,0,0};
-        correctCombination = new int[] {6,7,8,4};
+        correctCombination = new int[] {5,1,7,4};
         isOpened = false;
         Rotate.Rotated += CheckResults;
     }
