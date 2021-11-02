@@ -16,7 +16,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject chaseMode;
 
     [SerializeField] GameObject chaseStreaming;
-    [SerializeField] GameObject patrolWhispering;
+    //[SerializeField] GameObject patrolWhispering;
     public float lookRadius = 35f;
 
 
@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
         chaseMode.gameObject.SetActive(false);
 
         chaseStreaming.gameObject.SetActive(false);
-        patrolWhispering.gameObject.SetActive(true);
+        //patrolWhispering.gameObject.SetActive(true);
         //chaseScreaming = GetComponent<AudioSource>();
         //patrolWhispering = GetComponent<AudioSource>();
 
@@ -51,7 +51,7 @@ public class EnemyController : MonoBehaviour
             chaseMode.gameObject.SetActive(true);
 
             chaseStreaming.gameObject.SetActive(true);
-            patrolWhispering.gameObject.SetActive(false);
+            //patrolWhispering.gameObject.SetActive(false);
 
             agent.SetDestination(target.position);
 
@@ -68,7 +68,7 @@ public class EnemyController : MonoBehaviour
             chaseMode.gameObject.SetActive(false);
 
             chaseStreaming.gameObject.SetActive(false);
-            patrolWhispering.gameObject.SetActive(true);
+            //patrolWhispering.gameObject.SetActive(true);
 
             agent.SetDestination(characterDestination.transform.position);
         }
