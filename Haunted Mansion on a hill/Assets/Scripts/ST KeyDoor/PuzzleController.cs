@@ -24,7 +24,7 @@ public class PuzzleController : MonoBehaviour
         puzzlepieces = GameObject.FindGameObjectsWithTag(interactableeTag);
         if (puzzlepieces.Length == 0)
         {
-            notEnoughPieces.gameObject.SetActive(false);
+            Destroy(notEnoughPieces);
             enoughPieces.gameObject.SetActive(true);           
         }
     }
