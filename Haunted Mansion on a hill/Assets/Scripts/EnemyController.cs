@@ -5,8 +5,19 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    public GameObject characterDestination;
 
-    public float lookRadius = 10f;
+    //public AudioSource chaseScreaming;
+    //public AudioClip chaseClip;
+    //public AudioSource patrolWhispering;
+    //public AudioClip patrolClip;
+
+    [SerializeField] GameObject patrolMode;
+    [SerializeField] GameObject chaseMode;
+
+    [SerializeField] GameObject chaseStreaming;
+    [SerializeField] GameObject patrolWhispering;
+    public float lookRadius = 35f;
 
 
     Transform target;
@@ -15,6 +26,14 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        patrolMode.gameObject.SetActive(true);
+        chaseMode.gameObject.SetActive(false);
+
+        chaseStreaming.gameObject.SetActive(false);
+        patrolWhispering.gameObject.SetActive(true);
+        //chaseScreaming = GetComponent<AudioSource>();
+        //patrolWhispering = GetComponent<AudioSource>();
+
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>(); 
     }
@@ -26,12 +45,32 @@ public class EnemyController : MonoBehaviour
 
         if(distance <= lookRadius)
         {
+            //chaseScreaming.Play();
+            //patrolWhispering.Pause();
+            patrolMode.gameObject.SetActive(false);
+            chaseMode.gameObject.SetActive(true);
+
+            chaseStreaming.gameObject.SetActive(true);
+            patrolWhispering.gameObject.SetActive(false);
+
             agent.SetDestination(target.position);
 
             if(distance <= agent.stoppingDistance)
             {
                 FaceTarget();
             }
+        }
+        else
+        {
+            //chaseScreaming.Pause();
+            //patrolWhispering.Play();
+            patrolMode.gameObject.SetActive(true);
+            chaseMode.gameObject.SetActive(false);
+
+            chaseStreaming.gameObject.SetActive(false);
+            patrolWhispering.gameObject.SetActive(true);
+
+            agent.SetDestination(characterDestination.transform.position);
         }
     }
 
