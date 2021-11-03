@@ -18,6 +18,12 @@ namespace KeySystem
 
         private KeyDoorController doorObject;
 
+        private void Awake()
+        {
+            RedKeyImage.gameObject.SetActive(false);
+            RedKeyTickimg.gameObject.SetActive(false);
+        }
+
         private void Start()
         {
             RedKeyImage.gameObject.SetActive(false);
