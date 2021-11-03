@@ -9,6 +9,11 @@ public class PuzzleNumber : MonoBehaviour
     public static int puzzlePicked = 0;
     Text puzzlenum;
 
+    private void Awake()
+    {
+        puzzlePicked = 0;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
