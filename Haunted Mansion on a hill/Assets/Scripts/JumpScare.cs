@@ -13,16 +13,23 @@ public class JumpScare : MonoBehaviour
     [SerializeField] GameObject nextLevelTrigger;
     [SerializeField] GameObject SheHutningtxt;
 
+    [SerializeField] GameObject theGhost;
+    [SerializeField] GameObject colliderCube;
+
     private void Start()
     {
         SheHutningtxt.gameObject.SetActive(false);
+        theGhost.gameObject.SetActive(false);
+        colliderCube.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter()
     {
         Scream.Play();
         JumpCam.SetActive(true);
-       // ThePlayer.SetActive(false);
+        theGhost.gameObject.SetActive(true);
+        colliderCube.gameObject.SetActive(true);
+        // ThePlayer.SetActive(false);
         FlashImg.SetActive(true);
         StartCoroutine(EndJump());
         SheHutningtxt.gameObject.SetActive(true);

@@ -13,6 +13,7 @@ public class LockDoor : MonoBehaviour
     [SerializeField] GameObject LockedDoorMessage;
     [SerializeField] GameObject LockedDoorMessage1;
     [SerializeField] GameObject LockedDoorMessage2;
+    [SerializeField] GameObject LibraryDoorLockedMessage;
 
     //[SerializeField] private int waitTimer = 1;
     //[SerializeField] private bool pauseInteraction = false;
@@ -27,6 +28,7 @@ public class LockDoor : MonoBehaviour
         LockedDoorMessage.SetActive(false);
         LockedDoorMessage1.SetActive(false);
         LockedDoorMessage2.SetActive(false);
+        LibraryDoorLockedMessage.SetActive(false);
         StartCoroutine(WaitBeforeShow());
         RayDistance = Distance;
     }
@@ -81,6 +83,15 @@ public class LockDoor : MonoBehaviour
                     StartCoroutine(WaitBeforeShow());
                 }
             }
+            else if (hit.collider.CompareTag("LibraryLockedDoor"))
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    lockedsource.PlayOneShot(clip);
+                    LibraryDoorLockedMessage.SetActive(true);
+                    StartCoroutine(WaitBeforeShow());
+                }
+            }
         }
     }
     private IEnumerator WaitBeforeShow()
@@ -89,5 +100,6 @@ public class LockDoor : MonoBehaviour
         LockedDoorMessage.SetActive(false);
         LockedDoorMessage1.SetActive(false);
         LockedDoorMessage2.SetActive(false);
+        LibraryDoorLockedMessage.SetActive(false);
     }
 }

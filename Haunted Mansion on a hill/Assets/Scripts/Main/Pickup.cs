@@ -25,7 +25,7 @@ public class Pickup : MonoBehaviour
     [SerializeField] GameObject FirstCollide;
 
     [SerializeField] GameObject FlashlightInstructionUI2;
-    [SerializeField] GameObject FlashlightInstructionUI3;
+    //[SerializeField] GameObject FlashlightInstructionUI3;
 
     //[SerializeField] GameObject Flashlightobj;
 
@@ -71,7 +71,7 @@ public class Pickup : MonoBehaviour
                         FlashlightImage.gameObject.SetActive(false);
                         Destroy(FirstCollide);
                         Destroy(FlashlightInstructionUI2);
-                        FlashlightInstructionUI3.gameObject.SetActive(true);
+                        //FlashlightInstructionUI3.gameObject.SetActive(true);
                         source.PlayOneShot(clip);
                     }
 

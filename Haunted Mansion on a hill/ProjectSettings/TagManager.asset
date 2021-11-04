@@ -25,6 +25,8 @@ TagManager:
   - PuzzlePiece
   - NotEnoughPuzzle
   - Chest
+  - DestroyDoorButton
+  - LibraryLockedDoor
   layers:
   - Default
   - TransparentFX

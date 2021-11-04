@@ -6,16 +6,22 @@ public class Flashlight : MonoBehaviour
 {
     public AudioSource clickSound;
 
-    [SerializeField] GameObject FlashlightInstructionUI3;
+    //[SerializeField] GameObject FlashlightInstructionUI3;
+
+    [SerializeField] GameObject ToggleFlashlight;
 
     [SerializeField] GameObject flashLightLight;
     private bool FlashlightActive = false;
+
+    private void Awake()
+    {
+        ToggleFlashlight.gameObject.SetActive(true);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         flashLightLight.gameObject.SetActive(false);
-        FlashlightInstructionUI3.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -27,7 +33,7 @@ public class Flashlight : MonoBehaviour
             {
                 flashLightLight.gameObject.SetActive(true);
                 FlashlightActive = true;
-                Destroy(FlashlightInstructionUI3);
+                Destroy(ToggleFlashlight);
                 clickSound.Play();
             }
             else
