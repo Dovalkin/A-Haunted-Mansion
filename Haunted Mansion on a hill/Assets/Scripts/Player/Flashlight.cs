@@ -15,6 +15,7 @@ public class Flashlight : MonoBehaviour
     void Start()
     {
         flashLightLight.gameObject.SetActive(false);
+        FlashlightInstructionUI3.gameObject.SetActive(true);
     }
 
     // Update is called once per frame

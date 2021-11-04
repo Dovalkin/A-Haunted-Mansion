@@ -7,7 +7,7 @@ public class Inventory : MonoBehaviour
 {
 
     [SerializeField] GameObject InventoryMenu;
-    private bool InventoryActive = false;
+    //private bool InventoryActive = false;
 
     [SerializeField] GameObject FlashlightImage;
     [SerializeField] GameObject FlashlightButton;
@@ -25,7 +25,7 @@ public class Inventory : MonoBehaviour
         FlashlightInstructionUI3.gameObject.SetActive(false);
 
         InventoryMenu.gameObject.SetActive(false);
-        InventoryActive = false;
+        //InventoryActive = false;
 
         FlashlightImage.gameObject.SetActive(false);
         FlashlightButton.gameObject.SetActive(false);
@@ -35,26 +35,40 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(InventoryActive == false)
-            {
-                InventoryMenu.gameObject.SetActive(true);
-                InventoryActive = true;
-                Time.timeScale = 0f;
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-            }
-            else if (InventoryActive == true)
-            {
-                InventoryMenu.gameObject.SetActive(false);
-                InventoryActive = false;
-                Time.timeScale = 1f;
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+            InventoryMenu.gameObject.SetActive(true);
+            //InventoryActive = true;
+            Time.timeScale = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            //if(InventoryActive == false)
+            //{
+            //    InventoryMenu.gameObject.SetActive(true);
+            //    //InventoryActive = true;
+            //    Time.timeScale = 0f;
+            //    Cursor.visible = true;
+            //    Cursor.lockState = CursorLockMode.None;
+            //}
+            //else if (InventoryActive == true)
+            //{
+            //    InventoryMenu.gameObject.SetActive(false);
+            //    //InventoryActive = false;
+            //    Time.timeScale = 1f;
+            //    Cursor.visible = false;
+            //    Cursor.lockState = CursorLockMode.Locked;
+            //}
         }
         //CheckFlashlight();
+    }
+
+    public void Resume()
+    {
+        InventoryMenu.gameObject.SetActive(false);
+        //InventoryActive = false;
+        Time.timeScale = 1f;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     //void CheckFlashlight()
