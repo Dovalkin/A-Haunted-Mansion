@@ -27,6 +27,14 @@ TagManager:
   - Chest
   - DestroyDoorButton
   - LibraryLockedDoor
+  - Gem1
+  - Gem2
+  - Symbol1
+  - Symbol2
+  - Symbol3
+  - Symbol4
+  - Chest2
+  - MainLockedDoor
   layers:
   - Default
   - TransparentFX
@@ -41,13 +49,13 @@ TagManager:
   - PuzzlePiece
   - ChestLock
   - Ghost
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Gem
+  - Gem2
+  - Symbol1
+  - Symbol2
+  - Symbol3
+  - Symbol4
+  - ChestLock2
   - 
   - 
   - 

@@ -24,15 +24,15 @@ public class ItemsList : MonoBehaviour
             {
                 ItemsListMenu.gameObject.SetActive(true);
                 InventoryActive = true;
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
+                //Cursor.visible = true;
+                //Cursor.lockState = CursorLockMode.None;
             }
             else if (InventoryActive == true)
             {
                 ItemsListMenu.gameObject.SetActive(false);
                 InventoryActive = false;
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
+                //Cursor.visible = false;
+                //Cursor.lockState = CursorLockMode.Locked;
             }
         }
     }
