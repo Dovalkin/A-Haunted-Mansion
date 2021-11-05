@@ -7,7 +7,8 @@ public class SymbolRaycast : MonoBehaviour
 {
     public AudioSource Aura;
 
-    [SerializeField] private GameObject GemLocked1;
+    [SerializeField] private GameObject SymbolLocked1;
+    [SerializeField] private GameObject Symbol1AtDoor;
 
     [SerializeField] private int rayLength = 4;
     [SerializeField] private LayerMask layerMaskInteract;
@@ -51,10 +52,11 @@ public class SymbolRaycast : MonoBehaviour
 
             if (Input.GetKeyDown(pickUpKey))
             {
+                Symbol1AtDoor.gameObject.SetActive(true);
                 //PuzzleNumber.puzzlePicked += 1;
                 //raycastedObject.ObjectInteraction();
                 Destroy(hit.transform.gameObject);
-                Destroy(GemLocked1);
+                Destroy(SymbolLocked1);
                 Aura.Play();
             }
         }
