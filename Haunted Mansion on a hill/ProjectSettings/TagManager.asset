@@ -35,6 +35,8 @@ TagManager:
   - Symbol4
   - Chest2
   - MainLockedDoor
+  - MainDoorDestroy
+  - Codelock
   layers:
   - Default
   - TransparentFX
@@ -56,7 +58,7 @@ TagManager:
   - Symbol3
   - Symbol4
   - ChestLock2
-  - 
+  - CodeLock
   - 
   - 
   - 
