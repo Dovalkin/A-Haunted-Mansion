@@ -19,6 +19,10 @@ public class Inventory : MonoBehaviour
     [SerializeField] GameObject FlashlightInstructionUI2;
     [SerializeField] GameObject FlashlightInstructionUI3;
 
+    //[SerializeField] GameObject LockPadCam1;
+
+    //private bool LockPad1Active = false;
+
     // Start is called before the first frame update
     void Start()
     {

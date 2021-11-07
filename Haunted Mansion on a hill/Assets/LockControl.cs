@@ -8,12 +8,14 @@ public class LockControl : MonoBehaviour
 
     public AudioSource Unlocked;
 
-    [SerializeField] GameObject PuzzlePiece;
+    [SerializeField] GameObject GreenKey;
     [SerializeField] GameObject ChestCoverClose;
     [SerializeField] GameObject ChestCoverOpen;
     [SerializeField] GameObject LockPadCam;
     [SerializeField] GameObject LockPadTrigger;
     [SerializeField] GameObject LockPadModel;
+
+    [SerializeField] GameObject Canva;
 
     [SerializeField]
     private Image crosshair;
@@ -22,7 +24,8 @@ public class LockControl : MonoBehaviour
     private bool isOpened;
     private void Start()
     {
-        PuzzlePiece.gameObject.SetActive(false);
+        GreenKey.gameObject.SetActive(false);
+        //GameObject.Find("LastPiece").GetComponent<BoxCollider>().enabled = false;
         ChestCoverClose.gameObject.SetActive(true);
         ChestCoverOpen.gameObject.SetActive(false);
 
@@ -60,7 +63,7 @@ public class LockControl : MonoBehaviour
             isOpened = true;
 
             Unlocked.Play();
-            PuzzlePiece.gameObject.SetActive(true);
+            GreenKey.gameObject.SetActive(true);
             ChestCoverClose.gameObject.SetActive(false);
             ChestCoverOpen.gameObject.SetActive(true);
             Destroy(LockPadTrigger);
@@ -69,6 +72,10 @@ public class LockControl : MonoBehaviour
             crosshair.gameObject.SetActive(true);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            //GameObject.Find("LastPiece").GetComponent<BoxCollider>().enabled = true;
+            //GameObject.Find("First Person Player").GetComponentInChildren<MouseLook>().enabled = true;
+            //GameObject.Find("First Person Player").GetComponent<PlayerMovement>().enabled = true;
+            Canva.gameObject.SetActive(true);
         }
     }
 

@@ -37,6 +37,10 @@ TagManager:
   - MainLockedDoor
   - MainDoorDestroy
   - Codelock
+  - LockPadCam1
+  - LockPadCam2
+  - CodeLockCam1
+  - FrontLockedDoor
   layers:
   - Default
   - TransparentFX

@@ -10,14 +10,24 @@ public class KeypadController : MonoBehaviour
     public int passwordLimit;
     public Text passwordText;
 
-    //[Header("Audio")]
+    [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip correctSound;
     public AudioClip wrongSound;
 
+    [SerializeField] GameObject Ghost;
+
+    [SerializeField] GameObject KeyPad;
+    [SerializeField] GameObject CodeLockCam;
+
+    [SerializeField] GameObject FrontdoorLocked;
+    [SerializeField] GameObject FrontdoorUnlocked;
+
     private void Start()
     {
         passwordText.text = "";
+        FrontdoorUnlocked.gameObject.SetActive(false);
+        FrontdoorLocked.gameObject.SetActive(true);
     }
 
     public void PasswordEntry(string number)
@@ -57,6 +67,11 @@ public class KeypadController : MonoBehaviour
 
             passwordText.color = Color.green;
             StartCoroutine(waitAndClear());
+            Destroy(KeyPad, 1.5f);
+            Destroy(CodeLockCam, 1.5f);
+            FrontdoorUnlocked.gameObject.SetActive(true);
+            Destroy(FrontdoorLocked);
+            Destroy(Ghost);
         }
         else
         {

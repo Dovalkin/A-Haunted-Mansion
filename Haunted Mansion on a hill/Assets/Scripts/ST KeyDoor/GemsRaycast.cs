@@ -17,6 +17,9 @@ public class GemsRaycast : MonoBehaviour
     //private PuzzleController raycastedObject;
     [SerializeField] private KeyCode pickUpKey = KeyCode.E;
 
+    [SerializeField] GameObject OrangeGemTick;
+    [SerializeField] GameObject OrangeGemImg;
+
     [SerializeField] private Image crosshair = null;
     [SerializeField] GameObject PickupMessage;
     private bool isCrosshairActive;
@@ -24,10 +27,11 @@ public class GemsRaycast : MonoBehaviour
 
     private string interactableeTag = "Gem1";
 
-    //void Start()
-    //{
-
-    //}
+    void Start()
+    {
+        OrangeGemTick.gameObject.SetActive(false);
+        OrangeGemImg.gameObject.SetActive(true);
+    }
 
     // Update is called once per frame
     private void Update()
@@ -57,6 +61,8 @@ public class GemsRaycast : MonoBehaviour
                 //raycastedObject.ObjectInteraction();
                 Destroy(hit.transform.gameObject);
                 Destroy(GemLocked1);
+                OrangeGemTick.gameObject.SetActive(true);
+                OrangeGemImg.gameObject.SetActive(false);
                 Aura.Play();
             }
         }

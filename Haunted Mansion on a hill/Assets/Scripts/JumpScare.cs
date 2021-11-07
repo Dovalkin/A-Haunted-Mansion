@@ -16,11 +16,41 @@ public class JumpScare : MonoBehaviour
     [SerializeField] GameObject theGhost;
     [SerializeField] GameObject colliderCube;
 
+    [SerializeField] GameObject PurpleGemtxt;
+    [SerializeField] GameObject PurpleGemImg;
+
+    [SerializeField] GameObject OrangeGemtxt;
+    [SerializeField] GameObject OrangeGemImg;
+
+    [SerializeField] GameObject ThunderSymboltxt;
+    [SerializeField] GameObject ThunderSymbolImg;
+
+    [SerializeField] GameObject BalanceSymboltxt;
+    [SerializeField] GameObject BalanceSymbolImg;
+
+    [SerializeField] GameObject VaseSymboltxt;
+    [SerializeField] GameObject VaseSymbolImg;
+
+    [SerializeField] GameObject TorchSymboltxt;
+    [SerializeField] GameObject TorchSymbolImg;
+
     private void Start()
     {
         SheHutningtxt.gameObject.SetActive(false);
         theGhost.gameObject.SetActive(false);
         colliderCube.gameObject.SetActive(false);
+        PurpleGemtxt.gameObject.SetActive(false);
+        PurpleGemImg.gameObject.SetActive(false);
+        OrangeGemtxt.gameObject.SetActive(false);
+        OrangeGemImg.gameObject.SetActive(false);
+        ThunderSymboltxt.gameObject.SetActive(false);
+        ThunderSymbolImg.gameObject.SetActive(false);
+        BalanceSymboltxt.gameObject.SetActive(false);
+        BalanceSymbolImg.gameObject.SetActive(false);
+        VaseSymboltxt.gameObject.SetActive(false);
+        VaseSymbolImg.gameObject.SetActive(false);
+        TorchSymboltxt.gameObject.SetActive(false);
+        TorchSymbolImg.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter()
@@ -33,6 +63,19 @@ public class JumpScare : MonoBehaviour
         FlashImg.SetActive(true);
         StartCoroutine(EndJump());
         SheHutningtxt.gameObject.SetActive(true);
+
+        PurpleGemtxt.gameObject.SetActive(true);
+        PurpleGemImg.gameObject.SetActive(true);
+        OrangeGemtxt.gameObject.SetActive(true);
+        OrangeGemImg.gameObject.SetActive(true);
+        ThunderSymboltxt.gameObject.SetActive(true);
+        ThunderSymbolImg.gameObject.SetActive(true);
+        BalanceSymboltxt.gameObject.SetActive(true);
+        BalanceSymbolImg.gameObject.SetActive(true);
+        VaseSymboltxt.gameObject.SetActive(true);
+        VaseSymbolImg.gameObject.SetActive(true);
+        TorchSymboltxt.gameObject.SetActive(true);
+        TorchSymbolImg.gameObject.SetActive(true);
     }
 
     IEnumerator EndJump()

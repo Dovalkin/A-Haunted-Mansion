@@ -21,10 +21,10 @@ public class PlayerAim : MonoBehaviour
                     {
                         hit.transform.GetComponent<KeypadKey>().SendKey();
                     }
-                    else if(hit.transform.name=="DoorMesh")
-                    {
-                        hit.transform.GetComponent<DoorController>().OpenClose();
-                    }
+                    //else if(hit.transform.name=="DoorMesh")
+                    //{
+                    //    hit.transform.GetComponent<DoorController>().OpenClose();
+                    //}
                 }
             }
         }

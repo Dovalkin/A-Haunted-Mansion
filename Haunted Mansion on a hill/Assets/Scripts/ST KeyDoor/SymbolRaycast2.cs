@@ -17,6 +17,9 @@ public class SymbolRaycast2 : MonoBehaviour
     //private PuzzleController raycastedObject;
     [SerializeField] private KeyCode pickUpKey = KeyCode.E;
 
+    [SerializeField] GameObject TorchSymbolTick;
+    [SerializeField] GameObject TorchSymbolImg;
+
     [SerializeField] private Image crosshair = null;
     [SerializeField] GameObject PickupMessage;
     private bool isCrosshairActive;
@@ -24,10 +27,11 @@ public class SymbolRaycast2 : MonoBehaviour
 
     private string interactableeTag = "Symbol3";
 
-    //void Start()
-    //{
-
-    //}
+    void Start()
+    {
+        TorchSymbolTick.gameObject.SetActive(false);
+        TorchSymbolImg.gameObject.SetActive(true);
+    }
 
     // Update is called once per frame
     private void Update()
@@ -57,6 +61,8 @@ public class SymbolRaycast2 : MonoBehaviour
                 //raycastedObject.ObjectInteraction();
                 Destroy(hit.transform.gameObject);
                 Destroy(SymbolLocked3);
+                TorchSymbolTick.gameObject.SetActive(true);
+                TorchSymbolImg.gameObject.SetActive(false);
                 Aura.Play();
             }
         }
