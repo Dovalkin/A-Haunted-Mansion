@@ -6,3 +6,5 @@ flashlight cookie retrieved from: https://www.mediafire.com/file/gchmkenjry6gsyh
 Padlock retrieved from: https://opengameart.org/content/dial-padlock-asset
 
 Keypad retrieved from: https://github.com/tyaxnon/digital-keypad-system
+
+Other assets are retrieved from the Unity Asset Store

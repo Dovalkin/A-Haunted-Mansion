@@ -15,6 +15,8 @@ public class KeypadController : MonoBehaviour
     public AudioClip correctSound;
     public AudioClip wrongSound;
 
+    [SerializeField] GameObject canvaa;
+
     [SerializeField] GameObject Ghost;
 
     [SerializeField] GameObject KeyPad;
@@ -78,6 +80,7 @@ public class KeypadController : MonoBehaviour
             Destroy(Ghost);
             CodeLockCollider.gameObject.SetActive(false);
             bigTrigger.gameObject.SetActive(false);
+            canvaa.gameObject.SetActive(true);
         }
         else
         {
