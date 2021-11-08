@@ -110,7 +110,7 @@ public class LockDoor : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     lockedsource.PlayOneShot(clip);
-                    MainDoorLockedMessage.SetActive(true);
+                    FrontDoorLockedMessage.SetActive(true);
                     StartCoroutine(WaitBeforeShow());
                 }
             }

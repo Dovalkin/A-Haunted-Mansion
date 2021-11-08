@@ -66,8 +66,8 @@ public class Puzzle3 : MonoBehaviour
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                     PickupMessage.gameObject.SetActive(false);
-                    GameObject.Find("First Person Player").GetComponentInChildren<MouseLook>().enabled = false;
-                    GameObject.Find("First Person Player").GetComponent<PlayerMovement>().enabled = false;
+                    GameObject.Find("First Person Player").GetComponentInChildren<MouseLookkk>().enabled = false;
+                    GameObject.Find("First Person Player").GetComponent<PlayerMovement1>().enabled = false;
                     crosshair.gameObject.SetActive(false);
                     Canva.gameObject.SetActive(false);
                 }
@@ -79,8 +79,8 @@ public class Puzzle3 : MonoBehaviour
                     Cursor.visible = false;
                     Cursor.lockState = CursorLockMode.Locked;
                     PickupMessage.gameObject.SetActive(true);
-                    GameObject.Find("First Person Player").GetComponentInChildren<MouseLook>().enabled = true;
-                    GameObject.Find("First Person Player").GetComponent<PlayerMovement>().enabled = true;
+                    GameObject.Find("First Person Player").GetComponentInChildren<MouseLookkk>().enabled = true;
+                    GameObject.Find("First Person Player").GetComponent<PlayerMovement1>().enabled = true;
                     crosshair.gameObject.SetActive(true);
                     Canva.gameObject.SetActive(true);
                 }
@@ -97,8 +97,8 @@ public class Puzzle3 : MonoBehaviour
         LockPadCam22 = GameObject.FindGameObjectsWithTag(lockPadCam2Tag);
         if (LockPadCam22.Length == 0)
         {
-            GameObject.Find("First Person Player").GetComponentInChildren<MouseLook>().enabled = true;
-            GameObject.Find("First Person Player").GetComponent<PlayerMovement>().enabled = true;
+            GameObject.Find("First Person Player").GetComponentInChildren<MouseLookkk>().enabled = true;
+            GameObject.Find("First Person Player").GetComponent<PlayerMovement1>().enabled = true;
             Canva.gameObject.SetActive(true);
         }
     }

@@ -17,7 +17,9 @@ public class Puzzle2 : MonoBehaviour
     [SerializeField] private Image crosshair = null;
     [SerializeField] GameObject PickupMessage;
 
-    [SerializeField] GameObject Canva;
+    [SerializeField] GameObject Canvaa;
+
+    [SerializeField] GameObject backButton;
 
 
     private bool isCrosshairActive;
@@ -25,7 +27,6 @@ public class Puzzle2 : MonoBehaviour
 
     [SerializeField] GameObject LockPadCam1;
     private bool LockPad1Active = false;
-
 
     public GameObject[] LockPadCam11;
     private string lockPadCam1Tag = "LockPadCam1";
@@ -35,7 +36,7 @@ public class Puzzle2 : MonoBehaviour
     {
         LockPadCam1.gameObject.SetActive(false);
         LockPad1Active = false;
-        Canva.gameObject.SetActive(true);
+        //Canva.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
@@ -69,22 +70,13 @@ public class Puzzle2 : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                     PickupMessage.gameObject.SetActive(false);
                     crosshair.gameObject.SetActive(false);
-                    GameObject.Find("First Person Player").GetComponentInChildren<MouseLook>().enabled = false;
-                    GameObject.Find("First Person Player").GetComponent<PlayerMovement>().enabled = false;
-                    Canva.gameObject.SetActive(false);
+                    GameObject.Find("First Person Player").GetComponent<CharacterController>().enabled = false;
+                    Canvaa.gameObject.SetActive(false);
+                    backButton.gameObject.SetActive(true);
                 }
                 else if (LockPad1Active == true)
                 {
-                    LockPadCam1.gameObject.SetActive(false);
-                    LockPad1Active = false;
-                    //Time.timeScale = 1f;
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
-                    crosshair.gameObject.SetActive(true);
-                    PickupMessage.gameObject.SetActive(true);
-                    GameObject.Find("First Person Player").GetComponentInChildren<MouseLook>().enabled = true;
-                    GameObject.Find("First Person Player").GetComponent<PlayerMovement>().enabled = true;
-                    Canva.gameObject.SetActive(true);
+
                 }
             }
         }
@@ -99,9 +91,26 @@ public class Puzzle2 : MonoBehaviour
         LockPadCam11 = GameObject.FindGameObjectsWithTag(lockPadCam1Tag);
         if (LockPadCam11.Length == 0)
         {
-            GameObject.Find("First Person Player").GetComponentInChildren<MouseLook>().enabled = true;
-            GameObject.Find("First Person Player").GetComponent<PlayerMovement>().enabled = true;
-            Canva.gameObject.SetActive(true);
+            GameObject.Find("First Person Player").GetComponent<CharacterController>().enabled = true;
+            Canvaa.gameObject.SetActive(true);
+            backButton.gameObject.SetActive(false);
+        }
+    }
+
+    public void Back()
+    {
+        if (LockPad1Active == true)
+        {
+            LockPadCam1.gameObject.SetActive(false);
+            LockPad1Active = false;
+            //Time.timeScale = 1f;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            crosshair.gameObject.SetActive(true);
+            PickupMessage.gameObject.SetActive(true);
+            GameObject.Find("First Person Player").GetComponent<CharacterController>().enabled = true;
+            Canvaa.gameObject.SetActive(true);
+            backButton.gameObject.SetActive(false);
         }
     }
     void CrosshairChange(bool on)
