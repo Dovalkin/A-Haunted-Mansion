@@ -19,6 +19,8 @@ public class Puzzle2 : MonoBehaviour
 
     [SerializeField] GameObject Canvaa;
 
+    [SerializeField] GameObject firstPersonPlayer;
+
     [SerializeField] GameObject backButton;
 
 
@@ -28,15 +30,17 @@ public class Puzzle2 : MonoBehaviour
     [SerializeField] GameObject LockPadCam1;
     private bool LockPad1Active = false;
 
-    public GameObject[] LockPadCam11;
-    private string lockPadCam1Tag = "LockPadCam1";
+    //public GameObject[] LockPadCam11;
+    //private string lockPadCam1Tag = "LockPadCam1";
 
     // Start is called before the first frame update
     void Start()
     {
         LockPadCam1.gameObject.SetActive(false);
         LockPad1Active = false;
+        backButton.gameObject.SetActive(false);
         //Canva.gameObject.SetActive(true);
+        //firstPersonPlayer.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -70,14 +74,14 @@ public class Puzzle2 : MonoBehaviour
                     Cursor.lockState = CursorLockMode.None;
                     PickupMessage.gameObject.SetActive(false);
                     crosshair.gameObject.SetActive(false);
-                    GameObject.Find("First Person Player").GetComponent<CharacterController>().enabled = false;
+                    firstPersonPlayer.gameObject.SetActive(false);
                     Canvaa.gameObject.SetActive(false);
                     backButton.gameObject.SetActive(true);
                 }
-                else if (LockPad1Active == true)
-                {
+                //else if (LockPad1Active == true)
+                //{
 
-                }
+                //}
             }
         }
         else
@@ -88,13 +92,13 @@ public class Puzzle2 : MonoBehaviour
                 doOnce = false;
             }
         }
-        LockPadCam11 = GameObject.FindGameObjectsWithTag(lockPadCam1Tag);
-        if (LockPadCam11.Length == 0)
-        {
-            GameObject.Find("First Person Player").GetComponent<CharacterController>().enabled = true;
-            Canvaa.gameObject.SetActive(true);
-            backButton.gameObject.SetActive(false);
-        }
+        //LockPadCam11 = GameObject.FindGameObjectsWithTag(lockPadCam1Tag);
+        //if (LockPadCam11.Length == 0)
+        //{
+        //    Canvaa.gameObject.SetActive(true);
+        //    backButton.gameObject.SetActive(false);
+        //    firstPersonPlayer.gameObject.SetActive(true);
+        //}
     }
 
     public void Back()
@@ -108,9 +112,9 @@ public class Puzzle2 : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             crosshair.gameObject.SetActive(true);
             PickupMessage.gameObject.SetActive(true);
-            GameObject.Find("First Person Player").GetComponent<CharacterController>().enabled = true;
             Canvaa.gameObject.SetActive(true);
             backButton.gameObject.SetActive(false);
+            firstPersonPlayer.gameObject.SetActive(true);
         }
     }
     void CrosshairChange(bool on)

@@ -18,6 +18,12 @@ public class LockControl1 : MonoBehaviour
     [SerializeField]
     private Image crosshair;
 
+    [SerializeField] GameObject firstPersonPlayer;
+
+    [SerializeField] GameObject backButton;
+
+    [SerializeField] GameObject Canva;
+
     private int[] result, correctCombination;
     private bool isOpened;
     private void Start()
@@ -65,10 +71,14 @@ public class LockControl1 : MonoBehaviour
             ChestCoverOpen2.gameObject.SetActive(true);
             Destroy(LockPadTrigger2);
             Destroy(LockPadModel2);
-            Destroy(LockPadCam2, 2f);
+            LockPadCam2.gameObject.SetActive(false);
             crosshair.gameObject.SetActive(true);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            firstPersonPlayer.gameObject.SetActive(true);
+            backButton.gameObject.SetActive(false);
+            Debug.Log("PausedPanelActived");
+            Canva.gameObject.SetActive(true);
         }
     }
 

@@ -41,6 +41,8 @@ TagManager:
   - LockPadCam2
   - CodeLockCam1
   - FrontLockedDoor
+  - Ghost
+  - WinTrigger
   layers:
   - Default
   - TransparentFX

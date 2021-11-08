@@ -9,6 +9,8 @@ public class PlayerDies : MonoBehaviour
     [SerializeField] GameObject DeathCam;
     [SerializeField] GameObject DeathUI;
 
+    private GameObject firstPersonPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,11 +19,19 @@ public class PlayerDies : MonoBehaviour
     }
 
     // Update is called once per frame
-    void OnCollisionEnter(Collision other)
+    //private void OnTriggerEnter()
+    //{
+
+    //    //Destroy(gameObject);
+    //    DeathCam.gameObject.SetActive(true);
+    //    StartCoroutine(EndDeath());
+    //}
+
+    void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Enemy")
+        if (other.tag == "Enemy")
         {
-            //Destroy(gameObject);
+            //    //Destroy(gameObject);
             DeathCam.gameObject.SetActive(true);
             StartCoroutine(EndDeath());
         }

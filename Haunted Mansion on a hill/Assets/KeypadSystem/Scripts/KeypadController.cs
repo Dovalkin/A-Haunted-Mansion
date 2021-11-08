@@ -20,6 +20,10 @@ public class KeypadController : MonoBehaviour
     [SerializeField] GameObject KeyPad;
     [SerializeField] GameObject CodeLockCam;
 
+    [SerializeField] GameObject CodeLockCollider;
+
+    [SerializeField] GameObject bigTrigger;
+
     [SerializeField] GameObject FrontdoorLocked;
     [SerializeField] GameObject FrontdoorUnlocked;
 
@@ -68,10 +72,12 @@ public class KeypadController : MonoBehaviour
             passwordText.color = Color.green;
             StartCoroutine(waitAndClear());
             Destroy(KeyPad, 1.5f);
-            Destroy(CodeLockCam, 1.5f);
+            CodeLockCam.gameObject.SetActive(false);
             FrontdoorUnlocked.gameObject.SetActive(true);
             Destroy(FrontdoorLocked);
             Destroy(Ghost);
+            CodeLockCollider.gameObject.SetActive(false);
+            bigTrigger.gameObject.SetActive(false);
         }
         else
         {

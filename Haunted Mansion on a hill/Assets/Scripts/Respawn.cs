@@ -5,17 +5,21 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
 
-    public Transform respawnPoint;
+    [SerializeField ]public Transform respawnPoint;
+
+    [SerializeField] public Transform enemy;
+
+    [SerializeField] GameObject DeathUI;
+    [SerializeField] GameObject DeathCam;
 
     // Start is called before the first frame update
-    void Start()
+    public void RespawnPlayer()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Time.timeScale = 1f;
+        enemy.transform.position = respawnPoint.transform.position;
+        Debug.Log("PlayerRespawned");
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        DeathUI.gameObject.SetActive(false);
     }
 }

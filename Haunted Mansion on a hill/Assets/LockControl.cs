@@ -15,16 +15,25 @@ public class LockControl : MonoBehaviour
     [SerializeField] GameObject LockPadTrigger;
     [SerializeField] GameObject LockPadModel;
 
-    [SerializeField] GameObject Canva;
-
     [SerializeField]
     private Image crosshair;
 
+    [SerializeField] GameObject firstPersonPlayer;
+
+    [SerializeField] GameObject backButton;
+
+    [SerializeField] GameObject Canva;
+
+
     private int[] result, correctCombination;
     private bool isOpened;
-    private void Start()
+
+    private void Awake()
     {
         GreenKey.gameObject.SetActive(false);
+    }
+    private void Start()
+    {
         //GameObject.Find("LastPiece").GetComponent<BoxCollider>().enabled = false;
         ChestCoverClose.gameObject.SetActive(true);
         ChestCoverOpen.gameObject.SetActive(false);
@@ -68,13 +77,12 @@ public class LockControl : MonoBehaviour
             ChestCoverOpen.gameObject.SetActive(true);
             Destroy(LockPadTrigger);
             Destroy(LockPadModel);
-            Destroy(LockPadCam, 2f);
+            LockPadCam.gameObject.SetActive(false);
             crosshair.gameObject.SetActive(true);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            //GameObject.Find("LastPiece").GetComponent<BoxCollider>().enabled = true;
-            //GameObject.Find("First Person Player").GetComponentInChildren<MouseLook>().enabled = true;
-            //GameObject.Find("First Person Player").GetComponent<PlayerMovement>().enabled = true;
+            firstPersonPlayer.gameObject.SetActive(true);
+            backButton.gameObject.SetActive(false);
             Canva.gameObject.SetActive(true);
         }
     }

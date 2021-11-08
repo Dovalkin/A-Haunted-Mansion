@@ -19,21 +19,30 @@ public class CodeLock : MonoBehaviour
 
     [SerializeField] GameObject Canva;
 
+    [SerializeField] GameObject backButton;
+
+    [SerializeField] GameObject codeLockCollider;
+
+    [SerializeField] GameObject bigTrigger;
+
     private bool isCrosshairActive;
     private bool doOnce;
 
     [SerializeField] GameObject CodeLockCam;
     private bool CodeLockActive = false;
 
-    public GameObject[] CodeLockCamm;
-    private string lockPadCam1Tag = "CodeLockCam1";
+    //public GameObject[] CodeLockCamm;
+    //private string lockPadCam1Tag = "CodeLockCam1";
 
     // Start is called before the first frame update
     void Start()
     {
+        codeLockCollider.gameObject.SetActive(false);
         CodeLockCam.gameObject.SetActive(false);
         CodeLockActive = false;
         Canva.gameObject.SetActive(true);
+        backButton.gameObject.SetActive(false);
+        bigTrigger.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -64,25 +73,30 @@ public class CodeLock : MonoBehaviour
                     CodeLockActive = true;
                     //Time.timeScale = 0f;
                     //Cursor.visible = true;
-                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.lockState = CursorLockMode.Locked;
                     PickupMessage.gameObject.SetActive(false);
                     crosshair.gameObject.SetActive(true);
-                    GameObject.Find("First Person Player").GetComponentInChildren<MouseLook>().enabled = false;
-                    GameObject.Find("First Person Player").GetComponent<PlayerMovement>().enabled = false;
                     Canva.gameObject.SetActive(false);
+                    backButton.gameObject.SetActive(true);
+                    codeLockCollider.gameObject.SetActive(true);
+                    bigTrigger.gameObject.SetActive(true);
                 }
                 else if (CodeLockActive == true)
                 {
-                    CodeLockCam.gameObject.SetActive(false);
-                    CodeLockActive = false;
-                    //Time.timeScale = 1f;
-                    //Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
-                    crosshair.gameObject.SetActive(true);
-                    PickupMessage.gameObject.SetActive(true);
-                    GameObject.Find("First Person Player").GetComponentInChildren<MouseLook>().enabled = true;
-                    GameObject.Find("First Person Player").GetComponent<PlayerMovement>().enabled = true;
-                    Canva.gameObject.SetActive(true);
+                    if (CodeLockActive == true)
+                    {
+                        CodeLockCam.gameObject.SetActive(false);
+                        CodeLockActive = false;
+                        //Time.timeScale = 1f;
+                        //Cursor.visible = false;
+                        Cursor.lockState = CursorLockMode.Locked;
+                        crosshair.gameObject.SetActive(true);
+                        PickupMessage.gameObject.SetActive(true);
+                        Canva.gameObject.SetActive(true);
+                        backButton.gameObject.SetActive(false);
+                        codeLockCollider.gameObject.SetActive(false);
+                        bigTrigger.gameObject.SetActive(false);
+                    }
                 }
             }
         }
@@ -94,14 +108,17 @@ public class CodeLock : MonoBehaviour
                 doOnce = false;
             }
         }
-        CodeLockCamm = GameObject.FindGameObjectsWithTag(lockPadCam1Tag);
-        if (CodeLockCamm.Length == 0)
-        {
-            GameObject.Find("First Person Player").GetComponentInChildren<MouseLook>().enabled = true;
-            GameObject.Find("First Person Player").GetComponent<PlayerMovement>().enabled = true;
-            Canva.gameObject.SetActive(true);
-        }
+        //CodeLockCamm = GameObject.FindGameObjectsWithTag(lockPadCam1Tag);
+        //if (CodeLockCamm.Length == 0)
+        //{
+        //    GameObject.Find("First Person Player").GetComponent<PlayerMovement1>().enabled = true;
+        //    Canva.gameObject.SetActive(true);
+        //    backButton.gameObject.SetActive(false);
+        //}
     }
+
+
+    
     void CrosshairChange(bool on)
     {
         if (on && !doOnce)
