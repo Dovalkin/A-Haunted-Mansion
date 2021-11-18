@@ -19,6 +19,8 @@ public class CodeLock : MonoBehaviour
 
     [SerializeField] GameObject Canva;
 
+    [SerializeField] GameObject crosshairLast;
+
     [SerializeField] GameObject backButton;
 
     [SerializeField] GameObject codeLockCollider;
@@ -35,6 +37,10 @@ public class CodeLock : MonoBehaviour
     //private string lockPadCam1Tag = "CodeLockCam1";
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        crosshairLast.gameObject.SetActive(false);
+    }
     void Start()
     {
         codeLockCollider.gameObject.SetActive(false);
@@ -80,6 +86,7 @@ public class CodeLock : MonoBehaviour
                     backButton.gameObject.SetActive(true);
                     codeLockCollider.gameObject.SetActive(true);
                     bigTrigger.gameObject.SetActive(true);
+                    crosshairLast.gameObject.SetActive(true);
                 }
                 else if (CodeLockActive == true)
                 {
@@ -96,6 +103,7 @@ public class CodeLock : MonoBehaviour
                         backButton.gameObject.SetActive(false);
                         codeLockCollider.gameObject.SetActive(false);
                         bigTrigger.gameObject.SetActive(false);
+                        crosshairLast.gameObject.SetActive(false);
                     }
                 }
             }

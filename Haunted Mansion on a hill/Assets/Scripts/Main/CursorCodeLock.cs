@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CursorCodeLock : MonoBehaviour
 {
-    public float sensitivityX = 15F;
-    public float sensitivityY = 15F;
+    public float sensitivityX = 100F;
+    public float sensitivityY = 100F;
     public float minimumX = -60F;
     public float maximumX = 60F;
     public float minimumY = -60F;
@@ -20,9 +20,9 @@ public class CursorCodeLock : MonoBehaviour
     }
     void Update()
     {
-        rotationX += Input.GetAxis("Mouse X") * sensitivityX;
+        rotationX += Input.GetAxis("Mouse X") * sensitivityX * Time.deltaTime;
         rotationX = Mathf.Clamp(rotationX, minimumX, maximumX);
-        rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
+        rotationY += Input.GetAxis("Mouse Y") * sensitivityY * Time.deltaTime;
         rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
         transform.localEulerAngles = new Vector3(-rotationY, rotationX, 0);
     }

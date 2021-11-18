@@ -5,7 +5,7 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
 
-    [SerializeField ]public Transform respawnPoint;
+    [SerializeField] public Transform respawnPoint;
 
     [SerializeField] public Transform enemy;
 

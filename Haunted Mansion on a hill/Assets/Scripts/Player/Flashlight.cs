@@ -15,7 +15,7 @@ public class Flashlight : MonoBehaviour
 
     private void Awake()
     {
-        ToggleFlashlight.gameObject.SetActive(true);
+        //ToggleFlashlight.gameObject.SetActive(true);
     }
 
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class Flashlight : MonoBehaviour
             {
                 flashLightLight.gameObject.SetActive(true);
                 FlashlightActive = true;
-                Destroy(ToggleFlashlight);
+                //Destroy(ToggleFlashlight);
                 clickSound.Play();
             }
             else
