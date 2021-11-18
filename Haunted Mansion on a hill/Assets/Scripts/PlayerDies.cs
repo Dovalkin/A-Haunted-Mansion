@@ -7,15 +7,19 @@ public class PlayerDies : MonoBehaviour
 {
 
     [SerializeField] GameObject DeathCam;
-    [SerializeField] GameObject DeathUI;
+    //[SerializeField] GameObject DeathUI;
 
     private GameObject firstPersonPlayer;
+
+    [SerializeField] public Transform respawnPoint;
+
+    [SerializeField] public Transform enemy;
 
     // Start is called before the first frame update
     void Start()
     {
         DeathCam.gameObject.SetActive(false);
-        DeathUI.gameObject.SetActive(false);
+        //DeathUI.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -40,9 +44,11 @@ public class PlayerDies : MonoBehaviour
     {
         yield return new WaitForSeconds(2.03f);
         DeathCam.gameObject.SetActive(false);
-        DeathUI.gameObject.SetActive(true);
-        Time.timeScale = 0f;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        enemy.transform.position = respawnPoint.transform.position;
+        //DeathUI.gameObject.SetActive(true);
+        //Time.timeScale = 0f;
+        //Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+
     }
 }

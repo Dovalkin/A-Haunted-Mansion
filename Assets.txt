@@ -7,4 +7,8 @@ Padlock retrieved from: https://opengameart.org/content/dial-padlock-asset
 
 Keypad retrieved from: https://github.com/tyaxnon/digital-keypad-system
 
+Sound effects are retrieved from: freesound.org
+
+Character animations are retrieved from Mixamo
+
 Other assets are retrieved from the Unity Asset Store
