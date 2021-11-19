@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MouseLookkk : MonoBehaviour
 {
 
     public float mouseSensitivity = 100f;
+
+    public float _sensitivity = 100f;
+
+    public Slider sensitivitySlider;
+    //public float Sensitivity;
 
     public Transform playerBody;
 
@@ -29,5 +35,9 @@ public class MouseLookkk : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+    public void SetMouseSensitivity(float _sensitivity)
+    {
+        mouseSensitivity = _sensitivity;
     }
 }
